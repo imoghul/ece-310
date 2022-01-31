@@ -6,7 +6,12 @@ module lab_002_partb (
 );
 
   /* put your variable declarations here */
-
+  
+  wire aNotB, abc, notA;
+  not U1 (notA, A);
+  and U2 (aNotB, notA,B);
+  and U3 (abc, A,B,C);
+  or U4 (F, aNotB, abc);
 
   /* put your gate instances here */
 
