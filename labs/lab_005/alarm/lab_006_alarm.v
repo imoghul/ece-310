@@ -26,8 +26,8 @@ module lab_006_alarm (
            end
     end
     else begin
-       alarm <= 0;
-       secure<=1;
+       alarm <= 1;
+       secure<=0;
     end
 
   end
