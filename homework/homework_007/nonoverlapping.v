@@ -7,7 +7,7 @@ module nonoverlapping(
 	wire [3:0] current;
 	wire patternFound;
 	wire dead;
-	shift_reg overlapping_shiftReg (
+	shift_reg nonoverlapping_shiftReg (
 		.rst_n(rst_n),
 		.clock(clock),
 		.clr(patternFound),
