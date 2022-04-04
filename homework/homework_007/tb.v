@@ -8,7 +8,7 @@ module tb;
   reg overlap;
   reg o_load;
 
-  sequence_detector DUT (
+  hw7 DUT (
     .rst_n( rst_n ),
     .clock( clock ),
     .ser_in ( in ),

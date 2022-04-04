@@ -5,20 +5,17 @@ module nonoverlapping(
 );
 
 	wire [3:0] current;
-	wire patternFound;
-	wire dead;
 	shift_reg nonoverlapping_shiftReg (
 		.rst_n(rst_n),
 		.clock(clock),
-		.clr(patternFound),
+		.clr(found),
 		.ser_in(ser_in),
-		.reset_value(pattern%2?4'b0000:4'b1111),
-		.clear_value(pattern%2?3'b000:3'b111),
+		.reset_value({4{!pattern[0]}}),
+		.clear_value({3{!pattern[0]}}),
 		.value(current)
 	);
 	
-	assign patternFound = current[0]==pattern[3] && current[1]==pattern[2] && current[2]==pattern[1] && current[3]==pattern[0];
+	assign found = current[0]==pattern[3] && current[1]==pattern[2] && current[2]==pattern[1] && current[3]==pattern[0];
 
-	dff u1 (rst_n,clock,patternFound,found,dead);
 
 endmodule

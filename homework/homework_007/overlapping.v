@@ -5,8 +5,6 @@ module overlapping(
 );
 
 	wire [3:0] current;
-	wire patternFound;
-	wire dead;
 	shift_reg overlapping_shiftReg (
 		.rst_n(rst_n),
 		.clock(clock),
@@ -17,8 +15,7 @@ module overlapping(
 		.value(current)
 	);
 	
-	assign patternFound = current[0]==pattern[3] && current[1]==pattern[2] && current[2]==pattern[1] && current[3]==pattern[0];
+	assign found = current[0]==pattern[3] && current[1]==pattern[2] && current[2]==pattern[1] && current[3]==pattern[0];
 
-	dff u1 (rst_n,clock,patternFound,found,dead);
 
 endmodule
