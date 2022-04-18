@@ -8,7 +8,6 @@ module adler32(
 	wire last;
 	wire [31:0] curr;
 	wire retrieving;
-	reg inProgress,onLast;
 	size_count u1(clock,rst_n,size_valid,size+1,data_start,last,retrieving,curr);
 	adler32_acc u2(rst_n,clock,retrieving,data,checksum);
 	assign checksum_valid = last;
